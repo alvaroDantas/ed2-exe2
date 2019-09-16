@@ -13,15 +13,18 @@ public class Main {
         int menor;
         int qtdMaior = 0;
         int qtdMenor = 0;
-        int numbers[] = new int[]{2, 3, 2, 2, 2, 58, 58, 58, 6, 6};
+        int numbers[] = new int[10];
         Merge merge = new Merge();
 
+        
+
+        numbers = lerNumeros(numbers);
+        merge.mergeAsc(numbers, 0, numbers.length - 1);
+        
         maior = numbers[0];
         menor = numbers[0];
-
-        //lerNumeros(numbers, scanner);
-        merge.mergeAsc(numbers, 0, numbers.length - 1);
-
+        System.out.println(System.getProperty("line.separator"));
+        System.out.println("Números ordendados");
         apresentarNumeros(numbers);
 
         for (int i = 0; i < numbers.length; i++) {
@@ -54,11 +57,12 @@ public class Main {
         }
     }
 
-    public static void lerNumeros(int[] numbers) {
+    public static int[] lerNumeros(int[] numbers) {
         Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < numbers.length; i++) {
             System.out.println((i + 1) + " º número");
             numbers[i] = scanner.nextInt();
         }
+        return numbers;
     }
 }
